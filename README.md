@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tanem/injector.png)](https://travis-ci.org/tanem/injector)
 
-A small dependency injection module for Node.js. Extracted from a file used in a couple of other personal projects. Inspired by [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di).
+A small dependency injection module for Node.js. Extracted from a file used in a couple of other personal projects. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di).
 
 ## Usage
 
