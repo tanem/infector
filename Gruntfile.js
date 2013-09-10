@@ -9,7 +9,8 @@ module.exports = function(grunt){
       test: 'test/**/*.js',
       tasks: 'tasks/*.js',
       example: 'example/*.js',
-      readme: 'README.md'
+      readme: 'README.md',
+      gruntfile: 'Gruntfile.js'
     },
 
     jshint: {
@@ -27,6 +28,9 @@ module.exports = function(grunt){
       },
       example: {
         src: '<%= meta.example %>'
+      },
+      gruntfile: {
+        src: '<%= meta.gruntfile %>'
       }
     },
 
@@ -54,11 +58,15 @@ module.exports = function(grunt){
       },
       example: {
         files: '<%= meta.example %>',
-        tasks: ['jshint:example', 'docs']
+        tasks: ['jshint:example', 'test', 'docs']
       },
       readme: {
         files: '<%= meta.readme %>',
         tasks: ['docs']
+      },
+      gruntfile: {
+        files: '<%= meta.gruntfile %>',
+        tasks: ['jshint:gruntfile', 'test', 'docs']
       }
     },
 
@@ -69,7 +77,8 @@ module.exports = function(grunt){
           '<%= meta.test %>',
           '<%= meta.tasks %>',
           '<%= meta.example %>',
-          'README.md'
+          '<%= meta.readme %>',
+          '<%= meta.gruntfile %>'
         ],
         dest: '_docs',
         options: {
@@ -131,7 +140,7 @@ module.exports = function(grunt){
   grunt.registerTask(
     'start',
     'Re-generates the documentation then watches the relevant files, executing the appropriate tasks on change.',
-    ['clean', 'docs', 'watch']
+    ['clean', 'docs', 'jshint', 'test', 'watch']
   );
 
 };
