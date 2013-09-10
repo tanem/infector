@@ -46,7 +46,7 @@ Start:
 $ grunt start
 ````
 
-To read descriptions of the various Grunt tasks:
+To find out more about the various Grunt tasks, see `Gruntfile.js`. For for a high-level overview run:
 
 ````sh
 $ grunt --help
