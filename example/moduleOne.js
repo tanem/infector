@@ -1,13 +1,13 @@
 'use strict';
 
-var ModuleThree = require('./moduleThree');
-
 var ModuleOne = module.exports = function ModuleOne(moduleTwo, moduleThree){
-  if (!(moduleThree instanceof ModuleThree)) throw new Error('An instance of moduleThree must be injected');
+  if (!moduleTwo) throw new Error('moduleTwo must be injected');
+  if (!moduleThree) throw new Error('moduleThree must be injected');
   this.two = moduleTwo;
   this.three = moduleThree;
 };
 
+// The dependency array values correspond to registered module names.
 ModuleOne.inject = ['moduleTwo', 'moduleThree'];
 
 ModuleOne.prototype.greet = function(){
