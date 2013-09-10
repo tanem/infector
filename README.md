@@ -14,42 +14,17 @@ $ npm install injector --save
 
 ### Example
 
-Define a couple of modules:
+Take a look in the `example` dir. To run the example:
 
-````js
-// moduleOne.js
-var ModuleOne = module.exports = function ModuleOne(moduleTwo){
-  this.two = moduleTwo;
-};
-ModuleOne.inject = ['moduleTwo'];
-
-// moduleTwo.js
-module.exports = { foo: 'bar' };
-````
-
-Register modules with the injector and define how they are to be returned:
-
-````js
-var injector = require('injector');
-
-injector.registerModules({
-  'moduleOne': { type: require('./moduleOne') },
-  'moduleTwo': { value: require('./moduleTwo') }
-});
-````
-
-Now when `moduleOne` is required, the injector will instantiate it and inject the required dependencies:
-
-````js
-var one = injector.get('moduleOne');
-console.log(one.two.foo); // => "bar"
+````sh
+$ node example
 ````
 
 ## Development
 
 ### Dependencies
 
-Ensure the following is installed:
+To generate the docs, ensure the following is installed:
 
  * [Pygments](http://pygments.org/download/)
 
@@ -59,7 +34,7 @@ Install global dependencies:
 $ npm install -g grunt-cli istanbul
 ````
 
-Change to your project directory then install the local dependencies:
+Change to your project directory then install local dependencies:
 
 ````sh
 $ npm install
