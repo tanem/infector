@@ -126,15 +126,15 @@ module.exports = function(grunt){
   );
   
   grunt.registerTask(
-    'cover',
-    'Runs the unit tests and generates a code coverage report.',
-    ['clean:coverage', 'istanbul:cover']
-  );
-
-  grunt.registerTask(
     'test',
     'Runs the unit tests.',
     ['istanbul:test']
+  );
+  
+  grunt.registerTask(
+    'cover',
+    'Runs the unit tests and generates a code coverage report.',
+    ['clean:coverage', 'istanbul:cover']
   );
   
   grunt.registerTask(

@@ -40,17 +40,51 @@ Change to your project directory then install local dependencies:
 $ npm install
 ````
 
-Start:
+### Docs
+
+To generate:
+
+````sh
+$ grunt docs
+````
+
+Outputs to `_docs`. Open `_docs/README.md.html` in a browser to view.
+
+### Unit Tests
+
+To run the unit tests via [Mocha](https://github.com/visionmedia/mocha):
+
+````sh
+$ grunt test
+````
+
+### Code Coverage
+
+To run the unit tests and generate an HTML code coverage report via [Istanbul](https://github.com/gotwarlost/istanbul):
+
+````sh
+$ grunt cover
+````
+
+Outputs to `_coverage`. Open `_coverage/index.html` in a browser to view.
+
+### JSHint
+
+To run [JSHint](https://github.com/jshint/jshint/) over the required files:
+
+````sh
+$ grunt jshint
+````
+
+### Start
+
+The start task will execute certain tasks, then will watch the relevant files for changes, running appropriate tasks when required:
 
 ````sh
 $ grunt start
 ````
 
-To find out more about the various Grunt tasks, see `Gruntfile.js`. For for a high-level overview run:
-
-````sh
-$ grunt --help
-````
+To find out more about the various Grunt tasks, see `Gruntfile.js`.
 
 ## Credits
 
