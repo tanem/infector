@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tanem/infector.png)](https://travis-ci.org/tanem/infector)
 
-A small dependency injection module for Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/), see the credits section below.
+A small dependency injection module for Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
 
 ## Usage
 
@@ -14,7 +14,7 @@ $ npm install infector --save
 
 ### Example
 
-Take a look in the `example` dir. To run the example:
+A working example is available in the `example` dir. To run the example:
 
 ````sh
 $ node example
@@ -22,7 +22,7 @@ $ node example
 
 ## Development
 
-### Dependencies
+### Setup
 
 To generate the docs, ensure the following is installed:
 
@@ -34,15 +34,23 @@ Install global dependencies:
 $ npm install -g grunt-cli istanbul
 ````
 
-Change to your project directory then install local dependencies:
+Clone:
 
 ````sh
-$ npm install
+$ git clone http://github.com/tanem/infector.git
 ````
 
-### Docs
+Change to project dir, then install local dependencies:
 
-To generate:
+````sh
+$ cd infector && npm install
+````
+
+### Grunt Tasks
+
+#### Documentation
+
+To generate documentation via [Docker](https://github.com/jbt/docker):
 
 ````sh
 $ grunt docs
@@ -50,7 +58,7 @@ $ grunt docs
 
 Outputs to `_docs`. Open `_docs/README.md.html` in a browser to view.
 
-### Unit Tests
+#### Unit Tests
 
 To run the unit tests via [Mocha](https://github.com/visionmedia/mocha):
 
@@ -58,7 +66,7 @@ To run the unit tests via [Mocha](https://github.com/visionmedia/mocha):
 $ grunt test
 ````
 
-### Code Coverage
+#### Code Coverage
 
 To run the unit tests and generate an HTML code coverage report via [Istanbul](https://github.com/gotwarlost/istanbul):
 
@@ -68,7 +76,7 @@ $ grunt cover
 
 Outputs to `_coverage`. Open `_coverage/index.html` in a browser to view.
 
-### JSHint
+#### JSHint
 
 To run [JSHint](https://github.com/jshint/jshint/) over the required files:
 
@@ -76,7 +84,7 @@ To run [JSHint](https://github.com/jshint/jshint/) over the required files:
 $ grunt jshint
 ````
 
-### Start
+#### Start
 
 The start task will execute certain tasks, then will watch the relevant files for changes, running appropriate tasks when required:
 
