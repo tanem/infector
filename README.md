@@ -1,15 +1,15 @@
-# Injector
+# Infector
 
-[![Build Status](https://travis-ci.org/tanem/injector.png)](https://travis-ci.org/tanem/injector)
+[![Build Status](https://travis-ci.org/tanem/infector.png)](https://travis-ci.org/tanem/infector)
 
-A small dependency injection module for Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di).
+A small dependency injection module for Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/), see the credits section below.
 
 ## Usage
 
 ### Installation
 
 ````sh
-$ npm install injector --save
+$ npm install infector --save
 ````
 
 ### Example
@@ -57,3 +57,4 @@ $ grunt --help
  * [@appleYaks](https://github.com/appleYaks), whose [grunt-express-workflow](https://github.com/appleYaks/grunt-express-workflow) I leaned heavily on when configuring Istanbul
  * [@vojtajina](https://github.com/vojtajina), whose injector recipe in [node-di](https://github.com/vojtajina/node-di) gave me ideas for module registration
  * [AngularJS](https://github.com/angular/angular.js), where the idea of [how to specify dependencies to be injected](http://docs.angularjs.org/guide/di) came from
+ * [Infector++](https://code.google.com/p/infectorpp/), where the name for this component came from... it made me laugh :)

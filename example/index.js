@@ -1,11 +1,11 @@
 'use strict';
 
-var injector = require('../lib/injector');
+var infector = require('../lib/infector');
 
-injector.registerModules({
+infector.registerModules({
   'moduleOne': { type: require('./moduleOne') },
   'moduleTwo': { value: require('./moduleTwo') },
   'moduleThree': { type: require('./moduleThree') }
 });
 
-injector.get('moduleOne').greet();
+infector.get('moduleOne').greet();

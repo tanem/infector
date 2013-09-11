@@ -1,8 +1,8 @@
 {
-  "name": "injector",
+  "name": "infector",
   "version": "0.1.0",
-  "description": "Simple dependency injection module for Node.js.",
-  "main": "./lib/injector.js",
+  "description": "Infects a dependant object with it's dependencies, i.e., a simple dependency injection module for Node.js.",
+  "main": "./lib/infector.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/tanem/injector.git"
+    "url": "http://github.com/tanem/infector.git"
   },
   "engines": {
     "node": ">= 0.10.18"
