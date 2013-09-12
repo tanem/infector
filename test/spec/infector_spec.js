@@ -65,6 +65,15 @@ describe('infector', function(){
     infector._beget.restore();
   });
 
+  it('should handle constructor dependencies specified with "infect"', function(){
+    var begetStub = sinon.stub(infector, '_beget');
+    delete Foo.inject;
+    Foo.infect = ['bar'];
+    infector._construct(Foo);
+    expect(begetStub.args[0]).to.eql([Foo, ['bar']]);
+    infector._beget.restore();
+  });
+
   it('should correctly construct an object with a given args array', function(){
     var foo = infector._beget(Foo, ['John', 30]);
     expect(foo.name).to.be('John');
