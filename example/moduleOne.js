@@ -11,6 +11,7 @@ var ModuleOne = module.exports = function ModuleOne(moduleTwo, moduleThree){
 ModuleOne.infect = ['moduleTwo', 'moduleThree'];
 
 ModuleOne.prototype.greet = function(){
+  console.log('Hello from module one');
   this.two.greet();
   this.three.greet();
 };
