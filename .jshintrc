@@ -1,7 +1,6 @@
 {
   "node": true,
   "strict": true,
-  "unused": true,
   "undef": true,
   "trailing": true,
   "globals": {
