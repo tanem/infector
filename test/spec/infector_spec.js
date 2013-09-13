@@ -4,81 +4,129 @@ var infector = lib('infector');
 
 describe('infector', function(){
 
-  function Foo(name, age) {
-    this.name = name;
-    this.age = age;
-  }
-  Foo.inject = ['bar'];
-
-  beforeEach(function(){
-    infector.registerModules({
-      'foo': { type: Foo },
-      'bar': { value: 'bar' }
-    });
-  });
-
   afterEach(function(){
     infector.modules = {};
   });
 
-  it('should register modules correctly', function(){
-    infector.registerModules({ 'baz': { type: 'Baz' } });
-    expect(infector.modules).to.eql({
-      'foo': { type: Foo },
-      'bar': { value: 'bar' },
-      'baz': { type: 'Baz' }
+  describe('registerModules method', function(){
+
+    it('should register new modules', function(){
+      infector.registerModules({
+        'one': { value: true },
+        'two': { type: Object }
+      });
+      expect(infector.modules).to.eql({
+        'one': { value: true },
+        'two': { type: Object }
+      });
     });
-  });
 
-  it('should throw an error if an unknown module is requested', function(){
-    expect(function(){
-      infector.get('baz');
-    }).to.throwException(function(e){
-      expect(e.message).to.be('baz has not been configured');
+    it('should overwrite previously registered modules with the same name', function(){
+      infector.registerModules({ 'one': { value: true } });
+      infector.registerModules({ 'one': { value: false } });
+      expect(infector.modules).to.eql({ 'one': { value: false } });
     });
+
   });
 
-  it('should construct an instance of "type" if a module\'s return instruction is "type"', function(){
-    var stub = sinon.stub(infector, '_construct');
-    infector.get('foo');
-    expect(stub.args[0]).to.eql([Foo]);
-    infector._construct.restore();
-  });
+  describe('get method', function(){
 
-  it('should return "value" if a module\'s return instruction is "value"', function(){
-    expect(infector.get('bar')).to.be('bar');
-  });
-
-  it('should throw an error if a module has an unknown return instruction', function(){
-    infector.registerModules({ 'baz': {} });
-    expect(function(){
-      infector.get('baz');
-    }).to.throwException(function(e){
-      expect(e.message).to.be('baz has an unknown return instruction');
+    it('should throw an error if an unknown module is requested', function(){
+      expect(function(){
+        infector.get('foo');
+      }).to.throwException(function(e){
+        expect(e.message).to.be('foo has not been configured');
+      });
     });
+
+    it('should throw an error if a module has an unknown return instruction', function(){
+      infector.registerModules({ 'foo': { bar: true } });
+      expect(function(){
+        infector.get('foo');
+      }).to.throwException(function(e){
+        expect(e.message).to.be('foo has an unknown return instruction');
+      });
+    });
+
+    it('should construct an instance of "type" if a module\'s return instruction is "type"', function(){
+      var stub = sinon.stub(infector, '_construct');
+      infector.registerModules({ 'foo': { type: Object } });
+      infector.get('foo');
+      expect(stub.args[0]).to.eql([Object]);
+      infector._construct.restore();
+    });
+
+    it('should return "value" if a module\'s return instruction is "value"', function(){
+      infector.registerModules({ 'foo': { value: true } });
+      expect(infector.get('foo')).to.be(true);
+    });
+
   });
 
-  it('should handle a constructor function\'s dependencies correctly', function(){
-    var begetStub = sinon.stub(infector, '_beget');
-    infector._construct(Foo);
-    expect(begetStub.args[0]).to.eql([Foo, ['bar']]);
-    infector._beget.restore();
+  describe('_construct method', function(){
+
+    it('should return an instance of an object with it\'s dependencies injected', function(){
+      sinon.stub(infector, '_getDependencies').returns(['foo', 'bar']);
+      sinon.stub(infector, 'get').returns('qux');
+      function Baz(foo, bar) {
+        this.foo = foo;
+        this.bar = bar;
+      }
+      expect(infector._construct(Baz)).to.eql({
+        foo: 'qux',
+        bar: 'qux'
+      });
+      infector._getDependencies.restore();
+      infector.get.restore();
+    });
+
   });
 
-  it('should handle constructor dependencies specified with "infect"', function(){
-    var begetStub = sinon.stub(infector, '_beget');
-    delete Foo.inject;
-    Foo.infect = ['bar'];
-    infector._construct(Foo);
-    expect(begetStub.args[0]).to.eql([Foo, ['bar']]);
-    infector._beget.restore();
+  describe('_getDependencies method', function(){
+
+    it('should prioritise explicit over inferred dependencies', function(){
+      sinon.stub(infector, '_getExplicitDependencies').returns(['foo']);
+      sinon.stub(infector, '_getInferredDependencies').returns(['bar']);
+      expect(infector._getDependencies()).to.eql(['foo']);
+      infector._getExplicitDependencies.restore();
+      infector._getInferredDependencies.restore();
+    });
+
   });
 
-  it('should correctly construct an object with a given args array', function(){
-    var foo = infector._beget(Foo, ['John', 30]);
-    expect(foo.name).to.be('John');
-    expect(foo.age).to.be(30);
-    expect(foo instanceof Foo).to.be(true);
+  describe('_getExplicitDependencies method', function(){
+
+    it('should return dependencies specified via "infect"', function(){
+      function Foo(bar) {}
+      Foo.infect = ['bar'];
+      expect(infector._getExplicitDependencies(Foo)).to.eql(['bar']);
+    });
+
+    it('should return dependencies specified via "inject"', function(){
+      function Foo(bar) {}
+      Foo.inject = ['bar'];
+      expect(infector._getExplicitDependencies(Foo)).to.eql(['bar']);
+    });
+
+    it('should prioritise "infect" over "inject"', function(){
+      function Foo(bar) {}
+      Foo.infect = ['bar'];
+      Foo.inject = ['baz'];
+      expect(infector._getExplicitDependencies(Foo)).to.eql(['bar']);
+    });
+
+  });
+
+  describe('_getInferredDependencies method', function(){
+
+    it('should return dependencies via inferred constructor arguments', function(){
+      expect(infector._getInferredDependencies(function Foo() {})).to.be(null);
+      expect(infector._getInferredDependencies(function Foo(bar) {})).to.eql(['bar']);
+      expect(infector._getInferredDependencies(function Foo(bar, baz) {})).to.eql(['bar', 'baz']);
+      expect(infector._getInferredDependencies(function Foo(bar,    baz) {})).to.eql(['bar', 'baz']);
+      expect(infector._getInferredDependencies(function Foo(bar) { if (true) {} })).to.eql(['bar']);
+    });
+
   });
 
 });
