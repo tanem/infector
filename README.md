@@ -8,17 +8,45 @@ A small dependency injection module for Node.js. Inspired by the dependency inje
 
 ### Installation
 
-````sh
+```
 $ npm install infector --save
-````
+```
 
 ### Example
 
-A working example is available in the `example` dir. To run the example:
+```js
+var infector = require('infector');
 
-````sh
+// Inferred dependencies.
+function ModuleOne(moduleTwo) {
+  this.moduleTwo = moduleTwo
+};
+
+// Explicit dependencies.
+function ModuleTwo(foo) {
+  this.foo = foo;
+};
+ModuleTwo.infect = ['foo'];
+
+infector.register({
+  'moduleOne': { type: ModuleOne },
+  'moduleTwo': { type: ModuleTwo },
+  'foo': { value: true }
+});
+
+var moduleOne = infector.get('moduleOne');
+console.log(moduleOne instanceof ModuleOne); // => true
+console.log(moduleOne.moduleTwo instanceof ModuleTwo); // => true
+
+var moduleTwo = infector.get('moduleTwo');
+console.log(moduleTwo.foo); // => true
+```
+
+A more detailed example is available in the `example` dir. To run:
+
+```
 $ node example
-````
+```
 
 ## Development
 
@@ -30,21 +58,21 @@ To generate the docs, ensure the following is installed:
 
 Install global dependencies:
 
-````sh
+```
 $ npm install -g grunt-cli istanbul
-````
+```
 
 Clone:
 
-````sh
+```
 $ git clone http://github.com/tanem/infector.git
-````
+```
 
 Change to project dir, then install local dependencies:
 
-````sh
+```
 $ cd infector && npm install
-````
+```
 
 ### Grunt Tasks
 
@@ -52,9 +80,9 @@ $ cd infector && npm install
 
 To generate documentation via [Docker](https://github.com/jbt/docker):
 
-````sh
+```
 $ grunt docs
-````
+```
 
 Outputs to `_docs`. Open `_docs/README.md.html` in a browser to view.
 
@@ -62,17 +90,17 @@ Outputs to `_docs`. Open `_docs/README.md.html` in a browser to view.
 
 To run the unit tests via [Mocha](https://github.com/visionmedia/mocha):
 
-````sh
+```
 $ grunt test
-````
+```
 
 #### Code Coverage
 
 To run the unit tests and generate an HTML code coverage report via [Istanbul](https://github.com/gotwarlost/istanbul):
 
-````sh
+```
 $ grunt cover
-````
+```
 
 Outputs to `_coverage`. Open `_coverage/index.html` in a browser to view.
 
@@ -80,17 +108,17 @@ Outputs to `_coverage`. Open `_coverage/index.html` in a browser to view.
 
 To run [JSHint](https://github.com/jshint/jshint/) over the required files:
 
-````sh
+```
 $ grunt jshint
-````
+```
 
 #### Start
 
 The start task will execute certain tasks, then will watch the relevant files for changes, running appropriate tasks when required:
 
-````sh
+```
 $ grunt start
-````
+```
 
 To find out more about the various Grunt tasks, see `Gruntfile.js`.
 
