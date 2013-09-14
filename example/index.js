@@ -2,7 +2,7 @@
 
 var infector = require('../lib/infector');
 
-infector.registerModules({
+infector.register({
   'moduleOne': { type: require('./moduleOne') },
   'moduleTwo': { value: require('./moduleTwo') },
   'moduleThree': { type: require('./moduleThree') },

@@ -8,10 +8,10 @@ describe('infector', function(){
     infector.modules = {};
   });
 
-  describe('registerModules method', function(){
+  describe('register method', function(){
 
     it('should register new modules', function(){
-      infector.registerModules({
+      infector.register({
         'one': { value: true },
         'two': { type: Object }
       });
@@ -22,8 +22,8 @@ describe('infector', function(){
     });
 
     it('should overwrite previously registered modules with the same name', function(){
-      infector.registerModules({ 'one': { value: true } });
-      infector.registerModules({ 'one': { value: false } });
+      infector.register({ 'one': { value: true } });
+      infector.register({ 'one': { value: false } });
       expect(infector.modules).to.eql({ 'one': { value: false } });
     });
 
@@ -40,7 +40,7 @@ describe('infector', function(){
     });
 
     it('should throw an error if a module has an unknown return instruction', function(){
-      infector.registerModules({ 'foo': { bar: true } });
+      infector.register({ 'foo': { bar: true } });
       expect(function(){
         infector.get('foo');
       }).to.throwException(function(e){
@@ -50,14 +50,14 @@ describe('infector', function(){
 
     it('should construct an instance of "type" if a module\'s return instruction is "type"', function(){
       var stub = sinon.stub(infector, '_construct');
-      infector.registerModules({ 'foo': { type: Object } });
+      infector.register({ 'foo': { type: Object } });
       infector.get('foo');
       expect(stub.args[0]).to.eql([Object]);
       infector._construct.restore();
     });
 
     it('should return "value" if a module\'s return instruction is "value"', function(){
-      infector.registerModules({ 'foo': { value: true } });
+      infector.register({ 'foo': { value: true } });
       expect(infector.get('foo')).to.be(true);
     });
 
