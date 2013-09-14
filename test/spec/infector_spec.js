@@ -128,7 +128,7 @@ describe('infector', function(){
   describe('_getInferredDependencies method', function(){
 
     it('should return dependencies via inferred constructor arguments', function(){
-      expect(infector._getInferredDependencies(function Foo() {})).to.be(null);
+      expect(infector._getInferredDependencies(function Foo() {})).to.eql([]);
       expect(infector._getInferredDependencies(function Foo(bar) {})).to.eql(['bar']);
       expect(infector._getInferredDependencies(function Foo(bar, baz) {})).to.eql(['bar', 'baz']);
       expect(infector._getInferredDependencies(function Foo(bar,    baz) {})).to.eql(['bar', 'baz']);
