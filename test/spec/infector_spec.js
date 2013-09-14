@@ -92,6 +92,14 @@ describe('infector', function(){
       infector._getInferredDependencies.restore();
     });
 
+    it('should return inferred dependencies', function(){
+      sinon.stub(infector, '_getExplicitDependencies').returns(null);
+      sinon.stub(infector, '_getInferredDependencies').returns(['bar']);
+      expect(infector._getDependencies()).to.eql(['bar']);
+      infector._getExplicitDependencies.restore();
+      infector._getInferredDependencies.restore();
+    });
+
   });
 
   describe('_getExplicitDependencies method', function(){
