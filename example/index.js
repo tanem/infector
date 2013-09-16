@@ -1,6 +1,7 @@
 'use strict';
 
-var infector = require('../lib/infector');
+var Infector = require('../lib/infector'),
+  infector = new Infector();
 
 infector.register({
   'moduleOne': { type: require('./moduleOne') },

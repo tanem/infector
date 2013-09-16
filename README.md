@@ -15,7 +15,8 @@ $ npm install infector --save
 ### Example
 
 ```js
-var infector = require('infector');
+var Infector = require('infector'),
+  infector = new Infector();
 
 // Inferred dependencies.
 function ModuleOne(moduleTwo) {
