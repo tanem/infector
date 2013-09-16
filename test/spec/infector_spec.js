@@ -37,7 +37,7 @@ describe('infector', function(){
   });
 
   it('should throw an error if a module is requested that has an unkown return instruction', function(){
-    infector.register({ 'foo': { bar: true } });
+    infector.register({ 'foo': { bar: 'Bar' } });
     expect(function(){
       infector.get('foo');
     }).to.throwException(function(e){
