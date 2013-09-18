@@ -4,8 +4,6 @@ var grunt = require('grunt'),
   Mocha = require('mocha'),
   argv = require('optimist').argv;
 
-require('./globals');
-
 var mocha = new Mocha({
   reporter: argv.reporter,
   ui: argv.ui

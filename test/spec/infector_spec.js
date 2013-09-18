@@ -1,7 +1,8 @@
 'use strict';
 
 var _ = require('underscore'),
-  Infector = lib('infector');
+  expect = require('expect.js'),
+  Infector = require('../../lib/infector');
 
 describe('infector', function(){
 
