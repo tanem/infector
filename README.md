@@ -6,51 +6,67 @@ A small JS dependency injection module for both the browser and Node.js. Inspire
 
 ## Usage
 
-### Browser
+### Grab `Infector`
 
-#### Dependencies
-
- * [Underscore](http://underscorejs.org/)
-
-#### Example
+In the browser, [Underscore](http://underscorejs.org/) is a dependency and `Infector` is exposed as a global. So do something like:
 
 ```html
-...
 <script src="underscore.js"></script>
 <script src="infector.js"></script>
-<script>
-(function(){
-
-  var infector = new Infector();
-
-  // Inferred dependencies.
-  function ModuleOne(moduleTwo) {
-    this.moduleTwo = moduleTwo
-  };
-
-  // Explicit dependencies.
-  function ModuleTwo(foo) {
-    this.foo = foo;
-  };
-  ModuleTwo.infect = ['foo'];
-
-  infector.register({
-    'moduleOne': { type: ModuleOne },
-    'moduleTwo': { type: ModuleTwo },
-    'foo': { value: true }
-  });
-
-  var moduleOne = infector.get('moduleOne');
-  console.log(moduleOne instanceof ModuleOne); // => true
-  console.log(moduleOne.moduleTwo instanceof ModuleTwo); // => true
-
-  var moduleTwo = infector.get('moduleTwo');
-  console.log(moduleTwo.foo); // => true
-  
-}());
-</script>
-...
 ```
+
+In Node.js:
+
+```
+$ npm install infector --save
+```
+
+### Specify dependencies
+
+You have two options.
+
+ * Use an explicit constructor property:
+
+```js
+function Foo(bar) {}
+Foo.infect = ['bar'];
+// or you can use `.inject`
+```
+
+ * Have the dependencies inferred via the constructor parameters:
+
+```js
+function Foo(bar) {}
+```
+
+### Register modules
+
+There are two return options.
+
+ * `type`: an instance of `type` will be returned via `new`:
+
+```js
+function Foo() {}
+infector.register({ 'foo': { type: Foo } });
+```
+
+ * `value`: the registered `value` will be returned:
+
+```js
+infector.register({ 'foo': { value: 'Foo' } });
+```
+
+### Get modules
+
+Just do:
+
+```js
+infector.get('foo');
+```
+
+## Examples
+
+### Browser
 
 A working example is available in the `examples/browser` dir. To view:
 
@@ -59,43 +75,6 @@ $ open examples/browser/index.html
 ```
 
 ### Node.js
-
-#### Installation
-
-```
-$ npm install infector --save
-```
-
-#### Example
-
-```js
-var Infector = require('infector'),
-  infector = new Infector();
-
-// Inferred dependencies.
-function ModuleOne(moduleTwo) {
-  this.moduleTwo = moduleTwo
-};
-
-// Explicit dependencies.
-function ModuleTwo(foo) {
-  this.foo = foo;
-};
-ModuleTwo.infect = ['foo'];
-
-infector.register({
-  'moduleOne': { type: ModuleOne },
-  'moduleTwo': { type: ModuleTwo },
-  'foo': { value: true }
-});
-
-var moduleOne = infector.get('moduleOne');
-console.log(moduleOne instanceof ModuleOne); // => true
-console.log(moduleOne.moduleTwo instanceof ModuleTwo); // => true
-
-var moduleTwo = infector.get('moduleTwo');
-console.log(moduleTwo.foo); // => true
-```
 
 A working example is available in the `examples/node` dir. To run:
 
