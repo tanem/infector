@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Infector Demo</title>
+</head>
+<body>
+  <script src="../../node_modules/underscore/underscore.js"></script>
+  <script src="../../lib/infector.js"></script>
+  <script>
+  (function(){
+    var infector = new Infector();
+    function Foo(bar) { console.log(bar); }
+    infector.register({
+      'foo': { type: Foo },
+      'bar': { value: 'Bar' }
+    });
+    infector.get('foo');
+  }());
+  </script>
+</body>
+</html>
