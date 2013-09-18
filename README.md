@@ -2,17 +2,71 @@
 
 [![Build Status](https://travis-ci.org/tanem/infector.png)](https://travis-ci.org/tanem/infector)
 
-A small dependency injection module for Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
+A small JS dependency injection module for both the browser and Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
 
 ## Usage
 
-### Installation
+### Browser
+
+#### Dependencies
+
+ * [Underscore](http://underscorejs.org/)
+
+#### Example
+
+```html
+...
+<script src="underscore.js"></script>
+<script src="infector.js"></script>
+<script>
+(function(){
+
+  var infector = new Infector();
+
+  // Inferred dependencies.
+  function ModuleOne(moduleTwo) {
+    this.moduleTwo = moduleTwo
+  };
+
+  // Explicit dependencies.
+  function ModuleTwo(foo) {
+    this.foo = foo;
+  };
+  ModuleTwo.infect = ['foo'];
+
+  infector.register({
+    'moduleOne': { type: ModuleOne },
+    'moduleTwo': { type: ModuleTwo },
+    'foo': { value: true }
+  });
+
+  var moduleOne = infector.get('moduleOne');
+  console.log(moduleOne instanceof ModuleOne); // => true
+  console.log(moduleOne.moduleTwo instanceof ModuleTwo); // => true
+
+  var moduleTwo = infector.get('moduleTwo');
+  console.log(moduleTwo.foo); // => true
+  
+}());
+</script>
+...
+```
+
+A working example is available in the `examples/browser` dir. To view:
+
+```
+$ open examples/browser/index.html
+```
+
+### Node.js
+
+#### Installation
 
 ```
 $ npm install infector --save
 ```
 
-### Example
+#### Example
 
 ```js
 var Infector = require('infector'),
@@ -43,10 +97,10 @@ var moduleTwo = infector.get('moduleTwo');
 console.log(moduleTwo.foo); // => true
 ```
 
-A more detailed example is available in the `example` dir. To run:
+A working example is available in the `examples/node` dir. To run:
 
 ```
-$ node example
+$ node examples/node
 ```
 
 ## Development

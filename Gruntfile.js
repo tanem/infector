@@ -8,7 +8,7 @@ module.exports = function(grunt){
       lib: 'lib/*.js',
       test: 'test/**/*.js',
       tasks: 'tasks/*.js',
-      example: 'example/*.js',
+      examples: 'examples/*.js',
       readme: 'README.md',
       gruntfile: 'Gruntfile.js'
     },
@@ -26,8 +26,8 @@ module.exports = function(grunt){
       tasks: {
         src: '<%= meta.tasks %>'
       },
-      example: {
-        src: '<%= meta.example %>'
+      examples: {
+        src: '<%= meta.examples %>'
       },
       gruntfile: {
         src: '<%= meta.gruntfile %>'
@@ -56,9 +56,9 @@ module.exports = function(grunt){
         files: '<%= meta.tasks %>',
         tasks: ['jshint:tasks', 'test', 'docs']
       },
-      example: {
-        files: '<%= meta.example %>',
-        tasks: ['jshint:example', 'test', 'docs']
+      examples: {
+        files: '<%= meta.examples %>',
+        tasks: ['jshint:examples', 'test', 'docs']
       },
       readme: {
         files: '<%= meta.readme %>',
@@ -76,7 +76,7 @@ module.exports = function(grunt){
           '<%= meta.lib %>',
           '<%= meta.test %>',
           '<%= meta.tasks %>',
-          '<%= meta.example %>',
+          '<%= meta.examples %>',
           '<%= meta.readme %>',
           '<%= meta.gruntfile %>'
         ],

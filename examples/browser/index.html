@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Infector Demo</title>
+</head>
+<body>
+  <script src="../../node_modules/underscore/underscore.js"></script>
+  <script src="../../lib/infector.js"></script>
+  <script>
+  (function(){
+
+    var infector = new Infector();
+
+    // Inferred dependencies.
+    function ModuleOne(moduleTwo) {
+      this.moduleTwo = moduleTwo
+    };
+
+    // Explicit dependencies.
+    function ModuleTwo(foo) {
+      this.foo = foo;
+    };
+    ModuleTwo.infect = ['foo'];
+
+    infector.register({
+      'moduleOne': { type: ModuleOne },
+      'moduleTwo': { type: ModuleTwo },
+      'foo': { value: true }
+    });
+
+    var moduleOne = infector.get('moduleOne');
+    console.log(moduleOne instanceof ModuleOne); // => true
+    console.log(moduleOne.moduleTwo instanceof ModuleTwo); // => true
+
+    var moduleTwo = infector.get('moduleTwo');
+    console.log(moduleTwo.foo); // => true
+    
+  }());
+  </script>
+</body>
+</html>
