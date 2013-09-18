@@ -1,6 +1,6 @@
 {
   "name": "infector",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Infects a dependant object with it's dependencies, i.e., a simple dependency injection module for Node.js.",
   "main": "./lib/infector.js",
   "scripts": {
@@ -26,7 +26,6 @@
   "devDependencies": {
     "optimist": "~0.6.0",
     "expect.js": "~0.2.0",
-    "sinon": "~1.7.3",
     "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.6.4",
@@ -35,6 +34,6 @@
     "mocha": "~1.12.1"
   },
   "dependencies": {
-    "lodash": "~1.3.1"
+    "underscore": "~1.5.2"
   }
 }

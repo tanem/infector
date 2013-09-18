@@ -1,6 +1,6 @@
 'use strict';
 
-var _ = require('lodash'),
+var _ = require('underscore'),
   Infector = lib('infector');
 
 describe('infector', function(){
