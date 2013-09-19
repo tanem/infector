@@ -46,7 +46,7 @@ describe('infector', function(){
     });
   });
 
-  it('should return a module by type with explicit dependencies specified by "inject"', function(){
+  it('should return a module by type with dependencies specified by the constructor function\'s "inject" prop', function(){
     function Foo(bar) { this.bar = bar; }
     Foo.inject = ['bar'];
     infector.register({
@@ -58,7 +58,7 @@ describe('infector', function(){
     expect(foo.bar).to.eql('Bar');
   });
 
-  it('should return a module by type with explicit dependencies specified by "infect"', function(){
+  it('should return a module by type with dependencies specified by the constructor function\'s "infect" prop', function(){
     function Foo(bar) { this.bar = bar; }
     Foo.infect = ['bar'];
     infector.register({
@@ -68,26 +68,6 @@ describe('infector', function(){
     var foo = infector.get('foo');
     expect(foo instanceof Foo).to.be(true);
     expect(foo.bar).to.eql('Bar');
-  });
-
-  it('should return a module by type with inferred dependencies', function(){
-    _.each([
-      function Foo() { this.bar = 'Bar'; this.baz = 'Baz'; },
-      function Foo(bar) { this.bar = bar; this.baz = 'Baz'; },
-      function Foo(bar, baz) { this.bar = bar; this.baz = baz; },
-      function Foo(bar,    baz) { this.bar = bar; this.baz = baz; },
-      function Foo(bar) { if (true) { this.bar = bar; this.baz = 'Baz'; } }
-    ], function(Constructor){
-      infector.register({
-        'foo': { type: Constructor },
-        'bar': { value: 'Bar' },
-        'baz': { value: 'Baz'}
-      });
-      var foo = infector.get('foo');
-      expect(foo instanceof Constructor).to.be(true);
-      expect(foo.bar).to.eql('Bar');
-      expect(foo.baz).to.eql('Baz');
-    });
   });
 
   it('should return a module by value', function(){

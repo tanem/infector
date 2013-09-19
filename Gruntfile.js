@@ -8,7 +8,7 @@ module.exports = function(grunt){
       lib: 'lib/*.js',
       test: 'test/**/*.js',
       tasks: 'tasks/*.js',
-      examples: 'examples/*.js',
+      examples: 'examples/**/*.js',
       readme: 'README.md',
       gruntfile: 'Gruntfile.js'
     },

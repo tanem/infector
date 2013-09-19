@@ -23,20 +23,12 @@ $ npm install infector --save
 
 ### Specify dependencies
 
-You have two options.
-
- * Use an explicit constructor property:
+Use a constructor property:
 
 ```js
 function Foo(bar) {}
 Foo.infect = ['bar'];
-// or you can use `.inject`
-```
-
- * Have the dependencies inferred via the constructor parameters:
-
-```js
-function Foo(bar) {}
+// or Foo.inject = ['bar'];
 ```
 
 ### Register modules

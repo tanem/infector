@@ -12,29 +12,20 @@
 
     var infector = new Infector();
 
-    // Inferred dependencies.
-    function ModuleOne(moduleTwo) {
-      this.moduleTwo = moduleTwo
-    };
-
-    // Explicit dependencies.
-    function ModuleTwo(foo) {
+    function ModuleOne(foo) {
       this.foo = foo;
     };
-    ModuleTwo.infect = ['foo'];
+    ModuleOne.infect = ['foo'];
+    ModuleOne.prototype.getFoo = function(){ return this.foo; };
 
     infector.register({
       'moduleOne': { type: ModuleOne },
-      'moduleTwo': { type: ModuleTwo },
-      'foo': { value: true }
+      'foo': { value: 'Foo' }
     });
 
     var moduleOne = infector.get('moduleOne');
     console.log(moduleOne instanceof ModuleOne); // => true
-    console.log(moduleOne.moduleTwo instanceof ModuleTwo); // => true
-
-    var moduleTwo = infector.get('moduleTwo');
-    console.log(moduleTwo.foo); // => true
+    console.log(moduleOne.getFoo()); // => Foo
     
   }());
   </script>
