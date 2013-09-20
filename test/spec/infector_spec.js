@@ -83,4 +83,12 @@ describe('infector', function(){
     expect(fooOne).to.equal(fooTwo);
   });
 
+  it('should return a new instance of an object by type each time by default', function(){
+    function Foo() {}
+    infector.register({ 'foo': { type: Foo } });
+    var fooOne = infector.get('foo');
+    var fooTwo = infector.get('foo');
+    expect(fooOne).not.to.equal(fooTwo);
+  });
+
 });
