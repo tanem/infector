@@ -71,8 +71,16 @@ describe('infector', function(){
   });
 
   it('should return a module by value', function(){
-    infector.register({ 'bar': { value: 'Bar' } });
-    expect(infector.get('bar')).to.eql('Bar');
+    infector.register({ 'foo': { value: 'Foo' } });
+    expect(infector.get('foo')).to.eql('Foo');
+  });
+
+  it('should return a reference to the same object if it was registered with the singleton option', function(){
+    function Foo() {}
+    infector.register({ 'foo': { type: Foo, isSingleton: true } });
+    var fooOne = infector.get('foo');
+    var fooTwo = infector.get('foo');
+    expect(fooOne).to.equal(fooTwo);
   });
 
 });
