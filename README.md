@@ -150,6 +150,7 @@ To find out more about the various Grunt tasks, see `Gruntfile.js`.
 
 ## Credits
 
+ * This great article by Chad Perry: [DIY-DI](http://blacksheep.parry.org/wp-content/uploads/2010/03/DIY-DI.pdf)
  * [@appleYaks](https://github.com/appleYaks), whose [grunt-express-workflow](https://github.com/appleYaks/grunt-express-workflow) I leaned heavily on when configuring Istanbul
  * [@vojtajina](https://github.com/vojtajina), whose injector recipe in [node-di](https://github.com/vojtajina/node-di) gave me ideas for module registration
  * [AngularJS](https://github.com/angular/angular.js), where the idea of [how to specify dependencies to be injected](http://docs.angularjs.org/guide/di) came from
