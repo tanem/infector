@@ -1,6 +1,6 @@
 {
   "name": "infector",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Infects a dependant object with it's dependencies, i.e., a simple JS dependency injection module.",
   "main": "./lib/infector.js",
   "scripts": {
