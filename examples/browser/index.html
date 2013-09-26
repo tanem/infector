@@ -19,8 +19,8 @@
     ModuleOne.prototype.getFoo = function(){ return this.foo; };
 
     infector.register({
-      'moduleOne': { type: ModuleOne },
-      'foo': { value: 'Foo' }
+      moduleOne: { type: ModuleOne },
+      foo: { value: 'Foo' }
     });
 
     var moduleOne = infector.get('moduleOne');

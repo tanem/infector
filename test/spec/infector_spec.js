@@ -14,18 +14,18 @@ describe('infector', function(){
 
   it('should register new modules', function(){
     infector.register({
-      'one': { value: true },
-      'two': { type: Object }
+      one: { value: true },
+      two: { type: Object }
     });
     expect(infector.registry).to.eql({
-      'one': { value: true },
-      'two': { type: Object }
+      one: { value: true },
+      two: { type: Object }
     });
   });
 
   it('should overwrite previously registered modules with the same name', function(){
-    infector.register({ 'one': { value: true } });
-    infector.register({ 'one': { value: false } });
+    infector.register({ one: { value: true } });
+    infector.register({ one: { value: false } });
     expect(infector.registry).to.eql({ 'one': { value: false } });
   });
 
@@ -38,7 +38,7 @@ describe('infector', function(){
   });
 
   it('should throw an error if a module is requested that has an unkown return instruction', function(){
-    infector.register({ 'foo': { bar: 'Bar' } });
+    infector.register({ foo: { bar: 'Bar' } });
     expect(function(){
       infector.get('foo');
     }).to.throwException(function(e){
@@ -50,8 +50,8 @@ describe('infector', function(){
     function Foo(bar) { this.bar = bar; }
     Foo.inject = ['bar'];
     infector.register({
-      'foo': { type: Foo },
-      'bar': { value: 'Bar' }
+      foo: { type: Foo },
+      bar: { value: 'Bar' }
     });
     var foo = infector.get('foo');
     expect(foo instanceof Foo).to.be(true);
@@ -62,8 +62,8 @@ describe('infector', function(){
     function Foo(bar) { this.bar = bar; }
     Foo.infect = ['bar'];
     infector.register({
-      'foo': { type: Foo },
-      'bar': { value: 'Bar' }
+      foo: { type: Foo },
+      bar: { value: 'Bar' }
     });
     var foo = infector.get('foo');
     expect(foo instanceof Foo).to.be(true);
@@ -71,13 +71,13 @@ describe('infector', function(){
   });
 
   it('should return a module by value', function(){
-    infector.register({ 'foo': { value: 'Foo' } });
+    infector.register({ foo: { value: 'Foo' } });
     expect(infector.get('foo')).to.eql('Foo');
   });
 
   it('should return a reference to the same object if it was registered with the singleton option', function(){
     function Foo() {}
-    infector.register({ 'foo': { type: Foo, isSingleton: true } });
+    infector.register({ foo: { type: Foo, isSingleton: true } });
     var fooOne = infector.get('foo');
     var fooTwo = infector.get('foo');
     expect(fooOne).to.equal(fooTwo);
@@ -85,7 +85,7 @@ describe('infector', function(){
 
   it('should return a new instance of an object by type each time by default', function(){
     function Foo() {}
-    infector.register({ 'foo': { type: Foo } });
+    infector.register({ foo: { type: Foo } });
     var fooOne = infector.get('foo');
     var fooTwo = infector.get('foo');
     expect(fooOne).not.to.equal(fooTwo);

@@ -39,19 +39,19 @@ There are two return options.
 
 ```js
 function Foo() {}
-infector.register({ 'foo': { type: Foo } });
+infector.register({ foo: { type: Foo } });
 ```
 
 If you want the module to be returned as a singleton:
 
 ```js
-infector.register({ 'foo': { type: Foo, isSingleton: true } });
+infector.register({ foo: { type: Foo, isSingleton: true } });
 ```
 
  * `value`: the registered `value` will be returned:
 
 ```js
-infector.register({ 'foo': { value: 'Foo' } });
+infector.register({ foo: { value: 'Foo' } });
 ```
 
 ### Get modules
