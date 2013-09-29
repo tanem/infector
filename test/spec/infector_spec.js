@@ -12,6 +12,17 @@ describe('infector', function(){
     infector = new Infector();
   });
 
+  it('should allow registration of modules during instantiation', function(){
+    infector = new Infector({
+      one: { value: true },
+      two: { type: Object }
+    });
+    expect(infector.registry).to.eql({
+      one: { value: true },
+      two: { type: Object }
+    });
+  });
+
   it('should register new modules', function(){
     infector.register({
       one: { value: true },

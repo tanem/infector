@@ -10,15 +10,13 @@
   <script>
   (function(){
 
-    var infector = new Infector();
-
     function ModuleOne(foo) {
       this.foo = foo;
     };
     ModuleOne.infect = ['foo'];
     ModuleOne.prototype.getFoo = function(){ return this.foo; };
 
-    infector.register({
+    var infector = new Infector({
       moduleOne: { type: ModuleOne },
       foo: { value: 'Foo' }
     });
