@@ -15,6 +15,12 @@ In the browser, [Underscore](http://underscorejs.org/) is a dependency and `Infe
 <script src="infector.js"></script>
 ```
 
+Using [Bower](http://bower.io/):
+
+```
+$ bower install infector --save
+```
+
 In Node.js:
 
 ```
