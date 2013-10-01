@@ -1,0 +1,27 @@
+{
+  "name": "infector",
+  "version": "0.5.4",
+  "homepage": "https://github.com/tanem/infector",
+  "authors": [
+    "tanem <tane.morgan@gmail.com>"
+  ],
+  "description": "Infects a dependant object with it's dependencies, i.e., a simple JS dependency injection module.",
+  "main": "./lib/infector.js",
+  "keywords": [
+    "dependency",
+    "injection",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "examples",
+    "test",
+    "tasks",
+    "_docs",
+    "_coverage",
+    "Gruntfile.js",
+    ".travis.yml",
+    ".jshintrc",
+    ".npmignore"
+  ]
+}
