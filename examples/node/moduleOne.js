@@ -1,8 +1,6 @@
 'use strict';
 
 var ModuleOne = module.exports = function ModuleOne(moduleTwo, moduleThree){
-  if (!moduleTwo) throw new Error('moduleTwo is a required dependency');
-  if (!moduleThree) throw new Error('moduleThree is a required dependency');
   this.two = moduleTwo;
   this.three = moduleThree;
 };
