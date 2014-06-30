@@ -2,7 +2,7 @@
 
 var _ = require('underscore'),
   expect = require('expect.js'),
-  Infector = require('../../lib/infector');
+  Infector = require('../lib/infector');
 
 describe('infector', function(){
 
