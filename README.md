@@ -4,9 +4,10 @@
 [![Coverage Status](https://coveralls.io/repos/tanem/infector/badge.png?branch=master)](https://coveralls.io/r/tanem/infector?branch=master)
 [![NPM version](https://badge.fury.io/js/infector.svg)](http://badge.fury.io/js/infector)
 
+[![browser support](https://ci.testling.com/tanem/infector.png)](https://ci.testling.com/tanem/infector)
+
 A small JS dependency injection module for both the browser and Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
 
-[![browser support](https://ci.testling.com/tanem/infector.png)](https://ci.testling.com/tanem/infector)
 
 ## Usage
 
