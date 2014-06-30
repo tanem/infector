@@ -31,7 +31,8 @@
     "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-watch": "~0.5.3",
     "mocha": "~1.12.1",
-    "coveralls": "^2.10.1"
+    "coveralls": "^2.10.1",
+    "jshint": "^2.5.1"
   },
   "dependencies": {
     "underscore": "~1.5.2"
