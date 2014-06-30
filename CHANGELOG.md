@@ -1,3 +1,7 @@
+## v0.6.0
+
+ * Update changelog
+ 
 ## v0.5.9
 
  * Decruft readme
