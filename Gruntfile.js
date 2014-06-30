@@ -70,24 +70,6 @@ module.exports = function(grunt){
       }
     },
 
-    docker: {
-      all: {
-        src: [
-          '<%= meta.lib %>',
-          '<%= meta.test %>',
-          '<%= meta.tasks %>',
-          '<%= meta.examples %>',
-          '<%= meta.readme %>',
-          '<%= meta.gruntfile %>'
-        ],
-        dest: '_docs',
-        options: {
-          onlyUpdated: true,
-          colourScheme: 'default'
-        }
-      }
-    },
-
     istanbul: {
       options: {
         mochaFiles: 'test/spec/*_spec.js',
@@ -117,13 +99,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-docker');
-
-  grunt.registerTask(
-    'docs',
-    'Generate documentation using docker.',
-    ['docker']
-  );
   
   grunt.registerTask(
     'test',
