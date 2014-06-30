@@ -1,10 +1,10 @@
 {
   "name": "infector",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Infects a dependant object with it's dependencies, i.e., a simple JS dependency injection module.",
   "main": "./lib/infector.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "make test-coveralls"
   },
   "keywords": [
     "dependency",
@@ -24,12 +24,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "optimist": "~0.6.0",
     "expect.js": "~0.2.0",
-    "grunt": "~0.4.1",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-contrib-watch": "~0.5.3",
     "mocha": "~1.12.1",
     "coveralls": "^2.10.1",
     "jshint": "^2.5.1",
