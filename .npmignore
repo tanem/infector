@@ -1,9 +1,6 @@
 examples/
 test/
-tasks/
-_docs/
-_coverage/
-Gruntfile.js
+coverage/
 .travis.yml
 .jshintrc
 .npmignore
