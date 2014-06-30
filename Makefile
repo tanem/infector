@@ -3,6 +3,10 @@ REPORTER = spec
 lint:
 	@./node_modules/.bin/jshint ./lib/*.js ./test/*.js
 
+browser-test:
+	@$(MAKE) lint
+	@testling
+
 test:
 	@$(MAKE) lint
 	@NODE_ENV=test ./node_modules/.bin/mocha -b --reporter $(REPORTER)

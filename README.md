@@ -6,6 +6,7 @@
 
 A small JS dependency injection module for both the browser and Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
 
+[![browser support](https://ci.testling.com/tanem/infector.png)](https://ci.testling.com/tanem/infector)
 
 ## Usage
 
@@ -92,6 +93,14 @@ $ node examples/node
 
 
 ## Testing
+
+In the browser:
+
+```sh
+$ make browser-test
+```
+
+In Node.js:
 
 ```sh
 $ make test

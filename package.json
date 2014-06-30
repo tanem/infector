@@ -1,7 +1,7 @@
 {
   "name": "infector",
   "version": "0.6.2",
-  "description": "Infects a dependant object with it's dependencies, i.e., a simple JS dependency injection module.",
+  "description": "Infects a dependant object with it's dependencies.",
   "main": "./lib/infector.js",
   "scripts": {
     "test": "make test-coveralls"
@@ -28,9 +28,26 @@
     "mocha": "~1.12.1",
     "coveralls": "^2.10.1",
     "jshint": "^2.5.1",
-    "istanbul": "^0.2.13"
+    "istanbul": "^0.2.13",
+    "testling": "^1.7.0"
   },
   "dependencies": {
     "underscore": "~1.5.2"
+  },
+  "testling": {
+    "harness": "mocha",
+    "browsers": [
+      "ie/latest",
+      "chrome/latest",
+      "firefox/latest",
+      "safari/latest",
+      "opera/latest",
+      "iphone/latest",
+      "ipad/latest",
+      "android-browser/latest"
+    ],
+    "files": [
+      "test/infector.test.js"
+    ]
   }
 }
