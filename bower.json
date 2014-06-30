@@ -1,6 +1,6 @@
 {
   "name": "infector",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "homepage": "https://github.com/tanem/infector",
   "authors": [
     "tanem <tane.morgan@gmail.com>"
@@ -16,10 +16,7 @@
   "ignore": [
     "examples",
     "test",
-    "tasks",
-    "_docs",
-    "_coverage",
-    "Gruntfile.js",
+    "coverage",
     ".travis.yml",
     ".jshintrc",
     ".npmignore",
