@@ -1,3 +1,24 @@
+## v0.6.5
+
+ * Tweak tests
+
+## v0.6.4
+
+ * Adjust position of testling image
+
+## v0.6.3
+
+ * Configure browser tests
+ * Add documentation
+
+## v0.6.2
+
+ * Fix npm test script and remove unneeded dependencies
+
+## v0.6.1
+
+ * Update bower.json
+
 ## v0.6.0
 
  * Update changelog

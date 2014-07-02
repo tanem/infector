@@ -1,10 +1,9 @@
 'use strict';
 
-var _ = require('underscore'),
-  expect = require('expect.js'),
-  Infector = require('../lib/infector');
+var expect = require('expect.js');
+var Infector = require('../lib/infector');
 
-describe('infector', function(){
+describe('Infector', function(){
 
   var infector;
 
@@ -57,28 +56,18 @@ describe('infector', function(){
     });
   });
 
-  it('should return a module by type with dependencies specified by the constructor function\'s "inject" prop', function(){
-    function Foo(bar) { this.bar = bar; }
-    Foo.inject = ['bar'];
-    infector.register({
-      foo: { type: Foo },
-      bar: { value: 'Bar' }
+  ['infect', 'inject'].forEach(function(prop){
+    it('should return a module by type with dependencies specified by the constructor function\'s "' + prop + '" prop', function(){
+      function Foo(bar) { this.bar = bar; }
+      Foo[prop] = ['bar'];
+      infector.register({
+        foo: { type: Foo },
+        bar: { value: 'Bar' }
+      });
+      var foo = infector.get('foo');
+      expect(foo instanceof Foo).to.be(true);
+      expect(foo.bar).to.eql('Bar');
     });
-    var foo = infector.get('foo');
-    expect(foo instanceof Foo).to.be(true);
-    expect(foo.bar).to.eql('Bar');
-  });
-
-  it('should return a module by type with dependencies specified by the constructor function\'s "infect" prop', function(){
-    function Foo(bar) { this.bar = bar; }
-    Foo.infect = ['bar'];
-    infector.register({
-      foo: { type: Foo },
-      bar: { value: 'Bar' }
-    });
-    var foo = infector.get('foo');
-    expect(foo instanceof Foo).to.be(true);
-    expect(foo.bar).to.eql('Bar');
   });
 
   it('should return a module by value', function(){
