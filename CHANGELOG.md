@@ -1,7 +1,11 @@
+## v0.6.7
+
+ * Update README
+ 
 ## v0.6.6
 
  * Update npm and bower descriptions
- 
+
 ## v0.6.5
 
  * Tweak tests

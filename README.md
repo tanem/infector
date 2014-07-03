@@ -6,7 +6,7 @@
 
 [![browser support](https://ci.testling.com/tanem/infector.png)](https://ci.testling.com/tanem/infector)
 
-A small JS dependency injection module for both the browser and Node.js. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
+Dependency injection for Node.js and the browser. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
 
 
 ## Usage
