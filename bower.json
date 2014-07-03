@@ -1,11 +1,11 @@
 {
   "name": "infector",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "homepage": "https://github.com/tanem/infector",
   "authors": [
     "tanem <tane.morgan@gmail.com>"
   ],
-  "description": "Infects a dependant object with it's dependencies, i.e., a simple JS dependency injection module.",
+  "description": "Dependency injection for Node.js and the browser.",
   "main": "./lib/infector.js",
   "keywords": [
     "dependency",

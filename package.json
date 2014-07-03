@@ -1,7 +1,7 @@
 {
   "name": "infector",
-  "version": "0.6.5",
-  "description": "Infects a dependant object with it's dependencies.",
+  "version": "0.6.6",
+  "description": "Dependency injection for Node.js and the browser.",
   "main": "./lib/infector.js",
   "scripts": {
     "test": "make test-coveralls"
