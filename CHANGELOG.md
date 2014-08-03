@@ -1,3 +1,8 @@
+## v0.6.8
+
+ * Ensure correct object is returned from the constructor
+ * Style tidy up
+ 
 ## v0.6.7
 
  * Update README

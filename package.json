@@ -1,6 +1,6 @@
 {
   "name": "infector",
-  "version": "0.6.7",
+  "version": "0.6.8",
   "description": "Dependency injection for Node.js and the browser.",
   "main": "./lib/infector.js",
   "scripts": {
