@@ -91,4 +91,12 @@ describe('Infector', function(){
     expect(fooOne).not.to.equal(fooTwo);
   });
 
+  it('should return returned value from constructor', function () {
+    function Foo() { return { test: 'testvalue' }; }
+    infector.register({ foo: { type: Foo } });
+    var foo = infector.get('foo');
+    expect(foo).to.have.property('test');
+    expect(foo.test).to.be.equal('testvalue');
+  });
+
 });
