@@ -1,6 +1,6 @@
 {
   "name": "infector",
-  "version": "0.6.8",
+  "version": "0.7.0",
   "description": "Dependency injection for Node.js and the browser.",
   "main": "./lib/infector.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "testling": "^1.7.0"
   },
   "dependencies": {
-    "underscore": "~1.5.2"
+    "lodash": "^2.4.1"
   },
   "testling": {
     "harness": "mocha",

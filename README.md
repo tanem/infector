@@ -13,10 +13,10 @@ Dependency injection for Node.js and the browser. Inspired by the dependency inj
 
 ### Grab `Infector`
 
-In the browser, [Underscore](http://underscorejs.org/) is a dependency and `Infector` is exposed as a global. So do something like:
+In the browser, [Lo-Dash](http://lodash.com/) is a dependency and `Infector` is exposed as a global. So do something like:
 
 ```html
-<script src="underscore.js"></script>
+<script src="lodash.js"></script>
 <script src="infector.js"></script>
 ```
 

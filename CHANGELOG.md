@@ -1,3 +1,7 @@
+## v0.7.0
+
+ * Replace Underscore with Lo-Dash
+
 ## v0.6.8
 
  * Ensure correct object is returned from the constructor
