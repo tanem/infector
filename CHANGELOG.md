@@ -1,3 +1,7 @@
+## v1.0.0
+
+ * v1.0.0
+ 
 ## v0.7.0
 
  * Replace Underscore with Lo-Dash
