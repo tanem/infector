@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Dependency injection for Node.js and the browser.",
   "main": "./lib/infector.js",
+  "homepage": "https://github.com/tanem/infector",
   "scripts": {
     "test": "make test-coveralls"
   },
