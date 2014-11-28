@@ -22,13 +22,13 @@ In the browser, [Lo-Dash](http://lodash.com/) is a dependency and `Infector` is 
 
 Using [Bower](http://bower.io/):
 
-```
+```sh
 $ bower install infector --save
 ```
 
 In Node.js:
 
-```
+```sh
 $ npm install infector --save
 ```
 
@@ -80,7 +80,7 @@ infector.get('foo');
 
 A working example is available in the `examples/browser` dir. To view:
 
-```
+```sh
 $ open examples/browser/index.html
 ```
 
@@ -88,7 +88,7 @@ $ open examples/browser/index.html
 
 A working example is available in the `examples/node` dir. To run:
 
-```
+```sh
 $ node examples/node
 ```
 
