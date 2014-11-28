@@ -1,3 +1,7 @@
+## v1.0.2 / 2014-11-28
+
+ * ([e92a679](https://github.com/tanem/infector/commit/e92a6798abc116727ba9d56f93ef85f9db298f06)) Update README
+
 ## v1.0.1 / 2014-10-11
 
  * ([56a8592](https://github.com/tanem/infector/commit/56a859200254d2ab915e57590ac551f5df6e5a83)) Add commit links to CHANGELOG (fixes [#2](https://github.com/tanem/infector/issues/2))
