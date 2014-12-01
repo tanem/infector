@@ -8,7 +8,6 @@
 
 Dependency injection for Node.js and the browser. Inspired by the dependency injection approaches in [AngularJS](https://github.com/angular/angular.js) and [node-di](https://github.com/vojtajina/node-di). No relation to [Infector++](https://code.google.com/p/infectorpp/).
 
-
 ## Usage
 
 ### Grab `Infector`
@@ -22,13 +21,13 @@ In the browser, [Lo-Dash](http://lodash.com/) is a dependency and `Infector` is 
 
 Using [Bower](http://bower.io/):
 
-```sh
+```
 $ bower install infector --save
 ```
 
 In Node.js:
 
-```sh
+```
 $ npm install infector --save
 ```
 
@@ -73,14 +72,13 @@ Just do:
 infector.get('foo');
 ```
 
-
 ## Examples
 
 ### Browser
 
 A working example is available in the `examples/browser` dir. To view:
 
-```sh
+```
 $ open examples/browser/index.html
 ```
 
@@ -88,31 +86,29 @@ $ open examples/browser/index.html
 
 A working example is available in the `examples/node` dir. To run:
 
-```sh
+```
 $ node examples/node
 ```
-
 
 ## Testing
 
 In the browser:
 
-```sh
+```
 $ make browser-test
 ```
 
 In Node.js:
 
-```sh
+```
 $ make test
 ```
 
 To generate a coverage report:
 
-```sh
+```
 $ make test-cov
 ```
-
 
 ## Credits
 
