@@ -1,3 +1,7 @@
+## v1.0.3 / 2014-12-01
+
+ * ([8436ef9](https://github.com/tanem/infector/commit/8436ef969894a8e5e38ec9e70ce2e3319971d22a)) Update README
+
 ## v1.0.2 / 2014-11-28
 
  * ([e92a679](https://github.com/tanem/infector/commit/e92a6798abc116727ba9d56f93ef85f9db298f06)) Update README
