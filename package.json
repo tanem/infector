@@ -5,7 +5,12 @@
   "main": "./lib/infector.js",
   "homepage": "https://github.com/tanem/infector",
   "scripts": {
-    "test": "make test-coveralls"
+    "lint": "jshint ./lib/*.js ./test/*.js",
+    "test-browser": "npm run lint && testling",
+    "test-spec": "npm run lint && NODE_ENV=test mocha -b --reporter spec",
+    "test-cov": "npm run lint && NODE_ENV=test istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec",
+    "test-coveralls": "npm run lint && istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "test": "npm run test-coveralls"
   },
   "keywords": [
     "dependency",

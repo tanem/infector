@@ -95,19 +95,19 @@ $ node examples/node
 In the browser:
 
 ```
-$ make browser-test
+$ npm run test-browser
 ```
 
 In Node.js:
 
 ```
-$ make test
+$ npm run test-spec
 ```
 
 To generate a coverage report:
 
 ```
-$ make test-cov
+$ npm run test-cov
 ```
 
 ## Credits
