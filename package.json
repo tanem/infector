@@ -1,6 +1,6 @@
 {
   "name": "infector",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Dependency injection for Node.js and the browser.",
   "main": "./lib/infector.js",
   "homepage": "https://github.com/tanem/infector",

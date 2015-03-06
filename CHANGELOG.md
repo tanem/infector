@@ -1,3 +1,7 @@
+## v1.0.4 / 2015-03-06
+
+ * ([5bc6694](https://github.com/tanem/infector/commit/5bc66945c2ad7842726934f7407388ec3b3efe5c)) Use npm scripts instead of Makefile
+
 ## v1.0.3 / 2014-12-01
 
  * ([8436ef9](https://github.com/tanem/infector/commit/8436ef969894a8e5e38ec9e70ce2e3319971d22a)) Update README
