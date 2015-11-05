@@ -1,8 +1,9 @@
 # Infector
 
-[![Build Status](https://travis-ci.org/tanem/infector.png)](https://travis-ci.org/tanem/infector)
-[![Coverage Status](https://coveralls.io/repos/tanem/infector/badge.png?branch=master)](https://coveralls.io/r/tanem/infector?branch=master)
-[![NPM version](https://badge.fury.io/js/infector.svg)](http://badge.fury.io/js/infector)
+[![build status](https://img.shields.io/travis/tanem/infector/master.svg?style=flat-square)](https://travis-ci.org/tanem/infector)
+[![coverage status](https://img.shields.io/coveralls/tanem/infector.svg?style=flat-square)](https://coveralls.io/r/tanem/infector)
+[![npm version](https://img.shields.io/npm/v/infector.svg?style=flat-square)](https://www.npmjs.com/package/infector)
+[![npm downloads](https://img.shields.io/npm/dm/infector.svg?style=flat-square)](https://www.npmjs.com/package/infector)
 
 [![browser support](https://ci.testling.com/tanem/infector.png)](https://ci.testling.com/tanem/infector)
 
