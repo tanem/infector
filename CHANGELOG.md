@@ -1,3 +1,8 @@
+## v1.0.7 / 2016-02-16
+
+ * ([5ccff8f](https://github.com/tanem/infector/commit/5ccff8fe14c0048bb45c2a8a22ef956174ea2826)) Update license (closes [#9](https://github.com/tanem/infector/issues/9))
+ * ([bc7c0d0](https://github.com/tanem/infector/commit/bc7c0d0937061c951c49bff196734a9bb00cd6c8)) Add dependency badges (closes [#10](https://github.com/tanem/infector/issues/10))
+
 ## v1.0.6 / 2015-11-06
 
  * ([e153429](https://github.com/tanem/infector/commit/e1534298e4c6e655c5163c026a16a63a82081513)) Update license (fixes [#7](https://github.com/tanem/infector/issues/7))
