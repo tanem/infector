@@ -4,6 +4,8 @@
 [![coverage status](https://img.shields.io/coveralls/tanem/infector.svg?style=flat-square)](https://coveralls.io/r/tanem/infector)
 [![npm version](https://img.shields.io/npm/v/infector.svg?style=flat-square)](https://www.npmjs.com/package/infector)
 [![npm downloads](https://img.shields.io/npm/dm/infector.svg?style=flat-square)](https://www.npmjs.com/package/infector)
+[![dependency status](https://david-dm.org/tanem/infector.svg?style=flat-square)](https://david-dm.org/tanem/infector)
+[![devDependency status](https://david-dm.org/tanem/infector/dev-status.svg?style=flat-square)](https://david-dm.org/tanem/infector#info=devDependencies)
 
 [![browser support](https://ci.testling.com/tanem/infector.png)](https://ci.testling.com/tanem/infector)
 
