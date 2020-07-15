@@ -38,7 +38,7 @@
     "testling": "^1.7.0"
   },
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "^4.17.19"
   },
   "testling": {
     "harness": "mocha",
